@@ -1,0 +1,27 @@
+{
+  "name": "stash",
+  "version": "0.0.1",
+  "description": "Some tools for typescript",
+  "main": "dist/index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eakarpov/stash.git"
+  },
+  "keywords": [
+    "typescript",
+    "javascript",
+    "utils"
+  ],
+  "author": "George Carpow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eakarpov/stash/issues"
+  },
+  "homepage": "https://github.com/eakarpov/stash#readme"
+}
