@@ -28,8 +28,8 @@ export class ConnectorClass {
         const url = `//${this.host}/${prefix ? `${prefix}/` : ''}${path}`;
 
         return fetch(url, {
+            credentials: 'include',
             ...options,
-            credentials: 'include'
         })
             .then((response: Response) => {
                 if (!response.ok) {
@@ -54,13 +54,13 @@ export class ConnectorClass {
     ): Promise<D> {
         const url = `//${this.host}/${prefix ? `${prefix}/` : ''}${path}`;
         return fetch(url, {
-            ...options,
             body: JSON.stringify(body || {}),
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
             method: 'POST',
+            ...options,
         })
             .then((response: Response) => {
                 if (!response.ok) {
@@ -88,13 +88,13 @@ export class ConnectorClass {
     ): Promise<D> {
         const url = `//${this.host}/${prefix ? `${prefix}/` : ''}${path}`;
         return fetch(url, {
-            ...options,
             body: JSON.stringify(body || {}),
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
             method: 'PATCH',
+            ...options,
         })
             .then((response: Response) => {
                 if (!response.ok) {
@@ -122,12 +122,12 @@ export class ConnectorClass {
     ): Promise<D> {
         const url = `//${this.host}/${prefix ? `${prefix}/` : ''}${path}`;
         return fetch(url, {
-            ...options,
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
             method: 'DELETE',
+            ...options,
         })
             .then((response: Response) => {
                 if (!response.ok) {
@@ -151,8 +151,8 @@ export class ConnectorClass {
         const url = `//${this.host}/${prefix ? `${prefix}/` : ''}${path}`;
 
         return fetch(url, {
-            ...options,
             credentials: 'include',
+            ...options,
         })
             .then((response: Response) => {
                 if (!response.ok) {
@@ -176,9 +176,9 @@ export class ConnectorClass {
         const url = `//${this.host}/${prefix ? `${prefix}/` : ''}${path}`;
 
         return fetch(url, {
-            ...options,
             method: 'HEAD',
             credentials: 'include',
+            ...options,
         })
             .then((response: Response) => {
                 if (!response.ok) {
@@ -203,8 +203,8 @@ export class ConnectorClass {
         const url = `//${this.host}/${prefix ? `${prefix}/` : ''}${path}`;
 
         return fetch(url, {
-            ...options,
             credentials: 'include',
+            ...options,
         })
             .then((response: Response) => {
                 if (!response.ok) {
