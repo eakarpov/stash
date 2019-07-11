@@ -45,7 +45,7 @@ export class ConnectorClass {
                     throw err;
                 }
 
-                throw new NetworkError(err.message);
+                throw new NetworkError(err);
             });
     }
 
@@ -79,7 +79,7 @@ export class ConnectorClass {
                     throw err;
                 }
 
-                throw new NetworkError(err.message);
+                throw new NetworkError(err);
             });
     }
 
@@ -113,7 +113,7 @@ export class ConnectorClass {
                     throw err;
                 }
 
-                throw new NetworkError(err.message);
+                throw new NetworkError(err);
             });
     }
 
@@ -143,7 +143,7 @@ export class ConnectorClass {
                     throw err;
                 }
 
-                throw new NetworkError(err.message);
+                throw new NetworkError(err);
             });
     }
 
@@ -168,7 +168,7 @@ export class ConnectorClass {
                     throw err;
                 }
 
-                throw new NetworkError(err.message);
+                throw new NetworkError(err);
             });
     }
 
@@ -194,7 +194,7 @@ export class ConnectorClass {
                     throw err;
                 }
 
-                throw new NetworkError(err.message);
+                throw new NetworkError(err);
             });
     }
 
@@ -220,7 +220,7 @@ export class ConnectorClass {
                     throw err;
                 }
 
-                throw new NetworkError(err.message);
+                throw new NetworkError(err);
             });
     }
 

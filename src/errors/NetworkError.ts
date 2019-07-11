@@ -1,5 +1,7 @@
 export class NetworkError extends Error {
-    constructor(message: string) {
-        super(message);
+    public error: Error;
+    constructor(error: Error) {
+        super(error.message);
+        this.error = error;
     }
 }
