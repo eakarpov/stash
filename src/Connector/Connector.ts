@@ -15,13 +15,15 @@ export interface Model {
 
 export class ConnectorClass {
     private host: string;
+    private strict?: boolean;
 
     constructor() {
         this.host = window.location.host;
     }
 
-    public setHost(host?: string) {
+    public setHost(host?: string, strict?: boolean) {
         this.host = host || window.location.host;
+        this.strict = strict;
     }
 
     public fetchApi<D>(path: string, options: RequestInit = {}, prefix: string = 'api'): Promise<D> {
@@ -32,7 +34,7 @@ export class ConnectorClass {
             ...options,
         })
             .then((response: Response) => {
-                if (!response.ok) {
+                if (this.strict && !response.ok) {
                     throw new HttpError(response.status, response.statusText);
                 }
                 return response.json();
@@ -63,7 +65,7 @@ export class ConnectorClass {
             ...options,
         })
             .then((response: Response) => {
-                if (!response.ok) {
+                if (this.strict && !response.ok) {
                     throw new HttpError(response.status, response.statusText);
                 }
                 if (response.status === 204) {
@@ -97,7 +99,7 @@ export class ConnectorClass {
             ...options,
         })
             .then((response: Response) => {
-                if (!response.ok) {
+                if (this.strict && !response.ok) {
                     throw new HttpError(response.status, response.statusText);
                 }
                 if (response.status === 204) {
@@ -130,7 +132,7 @@ export class ConnectorClass {
             ...options,
         })
             .then((response: Response) => {
-                if (!response.ok) {
+                if (this.strict && !response.ok) {
                     throw new HttpError(response.status, response.statusText);
                 }
                 return response.json();
@@ -155,7 +157,7 @@ export class ConnectorClass {
             ...options,
         })
             .then((response: Response) => {
-                if (!response.ok) {
+                if (this.strict && !response.ok) {
                     throw new HttpError(response.status, response.statusText);
                 }
                 return response.text();
@@ -181,7 +183,7 @@ export class ConnectorClass {
             ...options,
         })
             .then((response: Response) => {
-                if (!response.ok) {
+                if (this.strict && !response.ok) {
                     return Promise.resolve(true);
                 }
                 return Promise.resolve(false);
@@ -207,7 +209,7 @@ export class ConnectorClass {
             ...options,
         })
             .then((response: Response) => {
-                if (!response.ok) {
+                if (this.strict && !response.ok) {
                     throw new HttpError(response.status, response.statusText);
                 }
                 return response.blob();
@@ -235,6 +237,6 @@ export class ConnectorClass {
 
 export const Connector: ConnectorClass = new ConnectorClass();
 
-export function initConnect(host?: string) {
-    Connector.setHost(host);
+export function initConnect(host?: string, strict: boolean = true) {
+    Connector.setHost(host, strict);
 }
