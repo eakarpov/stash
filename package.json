@@ -1,6 +1,6 @@
 {
   "name": "ts-shelf",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Some tools for typescript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
